@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { type ReactNode } from "react";
 import { site } from "@/content/site";
+import { publicPath } from "@/lib/public-path";
 
 const linkIcons: Record<string, ReactNode> = {
   cv: <Download className="h-4 w-4" />,
@@ -44,7 +45,7 @@ export function Hero() {
           >
             {site.photo && (
               <Image
-                src={site.photo}
+                src={publicPath(site.photo)}
                 alt={site.name}
                 width={853}
                 height={1416}

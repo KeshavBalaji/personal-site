@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/content/site";
+import { publicPath } from "@/lib/public-path";
 import { AnimatedSection } from "./AnimatedSection";
 import { SectionHeader } from "./SectionHeader";
 
@@ -95,7 +96,7 @@ export function Experience() {
                       {item.logo ? (
                         <div className="absolute left-0 top-0.5 flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg bg-white ring-1 ring-black/10">
                           <Image
-                            src={item.logo}
+                            src={publicPath(item.logo)}
                             alt=""
                             width={36}
                             height={36}
