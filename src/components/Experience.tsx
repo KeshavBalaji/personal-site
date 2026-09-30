@@ -1,35 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 import { site } from "@/content/site";
 import { publicPath } from "@/lib/public-path";
 import { AnimatedSection } from "./AnimatedSection";
 import { SectionHeader } from "./SectionHeader";
 
 export function Experience() {
-  const scrollerRef = useRef<HTMLDivElement>(null);
-  const [canScrollMore, setCanScrollMore] = useState(false);
-
-  useEffect(() => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
-
-    const update = () => {
-      setCanScrollMore(
-        scroller.scrollTop + scroller.clientHeight < scroller.scrollHeight - 8,
-      );
-    };
-
-    update();
-    scroller.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    return () => {
-      scroller.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-    };
-  }, []);
-
   return (
     <section className="px-6 py-24">
       <div className="mx-auto max-w-5xl">
@@ -75,90 +52,76 @@ export function Experience() {
           </div>
         </AnimatedSection>
 
-        <div className="relative">
-        <div
-          ref={scrollerRef}
-          className="experience-scroll max-h-[18rem] overflow-y-auto pr-2"
-        >
-          <div className="space-y-10">
-            {site.experienceGroups.map((group) => (
-              <div key={group.label}>
-                <p className="mb-4 text-base font-semibold uppercase tracking-[0.16em] text-foreground">
-                  {group.label}
-                </p>
-                <div className="relative space-y-8">
-                  <div className="pointer-events-none absolute bottom-2 left-[17px] top-2 w-px bg-border" />
-                  {group.items.map((item) => (
-                    <div
-                      key={`${item.role}-${item.organization}-${item.start}`}
-                      className="relative pl-14"
-                    >
-                      {item.logo ? (
-                        <div className="absolute left-0 top-0.5 flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg bg-white ring-1 ring-black/10">
-                          <Image
-                            src={publicPath(item.logo)}
-                            alt=""
-                            width={36}
-                            height={36}
-                            className="h-full w-full object-cover"
-                          />
-                        </div>
-                      ) : (
-                        <div className="absolute left-[10px] top-1.5 h-4 w-4 rounded-full border-2 border-accent bg-background" />
-                      )}
-
-                      <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                        <div>
-                          <h3 className="text-lg font-semibold">{item.role}</h3>
-                          <p className="text-muted">
-                            {item.organization}
-                            {item.location && ` · ${item.location}`}
-                          </p>
-                          {item.note && (
-                            <p className="mt-1 text-sm text-muted">{item.note}</p>
-                          )}
-                        </div>
-                        <p className="mt-1 shrink-0 font-mono text-sm text-accent sm:mt-0">
-                          {item.start} — {item.end}
-                        </p>
+        <div className="grid grid-cols-1 gap-14 sm:grid-cols-2 sm:gap-10">
+          {site.experienceGroups.map((group) => (
+            <div key={group.label}>
+              <p className="mb-6 text-base font-semibold uppercase tracking-[0.16em] text-foreground">
+                {group.label}
+              </p>
+              <div className="relative space-y-8">
+                <div className="pointer-events-none absolute bottom-2 left-[17px] top-2 w-px bg-border" />
+                {group.items.map((item) => (
+                  <div
+                    key={`${item.role}-${item.organization}-${item.start}`}
+                    className="relative pl-14"
+                  >
+                    {item.logo ? (
+                      <div className="absolute left-0 top-0.5 flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg bg-white ring-1 ring-black/10">
+                        <Image
+                          src={publicPath(item.logo)}
+                          alt=""
+                          width={36}
+                          height={36}
+                          className="h-full w-full object-cover"
+                        />
                       </div>
+                    ) : (
+                      <div className="absolute left-[10px] top-1.5 h-4 w-4 rounded-full border-2 border-accent bg-background" />
+                    )}
 
-                      {item.description.length > 0 && (
-                        <ul className="mt-4 space-y-2">
-                          {item.description.map((line) => (
-                            <li
-                              key={line}
-                              className="flex gap-2 text-sm leading-relaxed text-muted"
-                            >
-                              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
-                              {line}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
+                    <h3 className="text-lg font-semibold">{item.role}</h3>
+                    <p className="text-muted">
+                      {item.organization}
+                      {item.location && ` · ${item.location}`}
+                    </p>
+                    {item.note && (
+                      <p className="mt-1 text-sm text-muted">{item.note}</p>
+                    )}
+                    <p className="mt-1 font-mono text-sm text-accent">
+                      {item.start} — {item.end}
+                    </p>
 
-                      {item.tags && (
-                        <div className="mt-4 flex flex-wrap gap-2">
-                          {item.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="rounded-full bg-foreground/5 px-2.5 py-0.5 font-mono text-xs text-muted"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
+                    {item.description.length > 0 && (
+                      <ul className="mt-4 space-y-2">
+                        {item.description.map((line) => (
+                          <li
+                            key={line}
+                            className="flex gap-2 text-sm leading-relaxed text-muted"
+                          >
+                            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                            {line}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {item.tags && (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {item.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-full bg-foreground/5 px-2.5 py-0.5 font-mono text-xs text-muted"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-        {canScrollMore && (
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-background to-transparent" />
-        )}
+            </div>
+          ))}
         </div>
       </div>
     </section>

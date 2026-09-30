@@ -48,11 +48,6 @@ body {
     backdrop-filter: blur(12px);
   }
 
-  .experience-scroll {
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) transparent;
-  }
-
   .spot-glow {
     background: radial-gradient(
       560px circle at var(--spot-x, 50%) var(--spot-y, 30%),
