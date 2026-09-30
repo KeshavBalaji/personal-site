@@ -1,4 +1,3 @@
-import { Atmosphere } from "@/components/Atmosphere";
 import { Experience } from "@/components/Experience";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
@@ -8,7 +7,6 @@ import { Publications } from "@/components/Publications";
 export default function Home() {
   return (
     <>
-      <Atmosphere />
       <Navbar />
       <main>
         <Hero />
