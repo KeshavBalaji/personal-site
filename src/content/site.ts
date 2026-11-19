@@ -68,6 +68,7 @@ export const site = {
         "Keshav Balaji*, Shivashriganesh P. Mahato*, Divyansha Lachi, Eva L. Dyer",
       venue: "Machine Learning for Health (ML4H)",
       year: 2026,
+      github: "https://github.com/nerdslab/iCLR",
     },
     {
       title:
