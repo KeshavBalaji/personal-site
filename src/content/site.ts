@@ -46,6 +46,7 @@ export const site = {
   // --- Links (shown in hero + footer) ---
   links: {
     cv: "/cv.pdf", // drop your PDF in /public/cv.pdf
+    scholar: "https://scholar.google.com/citations?user=_tdULRIAAAAJ&hl=en",
     github: "https://github.com/KeshavBalaji",
     linkedin: "https://www.linkedin.com/in/keshav-balaji-a76a15248/",
   } as Record<string, string>,
@@ -176,6 +177,14 @@ export const site = {
     { label: "Education", href: "#education" },
     { label: "Experience", href: "#experience" },
   ],
+};
+
+// Display labels for site.links (used in hero + footer)
+export const linkLabels: Record<string, string> = {
+  cv: "CV",
+  scholar: "Google Scholar",
+  github: "GitHub",
+  linkedin: "LinkedIn",
 };
 
 export type SiteContent = typeof site;

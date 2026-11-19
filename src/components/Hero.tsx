@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { type ReactNode } from "react";
-import { site } from "@/content/site";
+import { linkLabels, site } from "@/content/site";
 import { publicPath } from "@/lib/public-path";
 
 const linkIcons: Record<string, ReactNode> = {
@@ -91,10 +91,10 @@ export function Hero() {
               href={href}
               target={href.startsWith("http") ? "_blank" : undefined}
               rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="glass inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm capitalize transition hover:border-accent/40"
+              className="glass inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm transition hover:border-accent/40"
             >
               {linkIcons[key]}
-              {key === "cv" ? "CV" : key}
+              {linkLabels[key] ?? key}
             </Link>
           ))}
         </motion.div>

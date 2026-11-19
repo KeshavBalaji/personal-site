@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { site } from "@/content/site";
+import { linkLabels, site } from "@/content/site";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -17,9 +17,9 @@ export function Footer() {
               href={href}
               target={href.startsWith("http") ? "_blank" : undefined}
               rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="text-sm capitalize text-muted transition hover:text-accent"
+              className="text-sm text-muted transition hover:text-accent"
             >
-              {key === "cv" ? "CV" : key}
+              {linkLabels[key] ?? key}
             </Link>
           ))}
         </div>
