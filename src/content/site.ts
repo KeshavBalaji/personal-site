@@ -66,8 +66,8 @@ export const site = {
         "Population-Aware Contrastive Channel Embeddings for Intracranial EEG",
       authors:
         "Shivashriganesh P. Mahato*, Keshav Balaji*, Divyansha Lachi, Eva L. Dyer",
-      venue: "In review at ICASSP",
-      year: 2027,
+      venue: "Accepted to Machine Learning for Health (ML4H)",
+      year: 2026,
     },
     {
       title:
