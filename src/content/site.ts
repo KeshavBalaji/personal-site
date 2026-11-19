@@ -65,7 +65,7 @@ export const site = {
       title:
         "Population-Aware Contrastive Channel Embeddings for Intracranial EEG",
       authors:
-        "Shivashriganesh P. Mahato*, Keshav Balaji*, Divyansha Lachi, Eva L. Dyer",
+        "Keshav Balaji*, Shivashriganesh P. Mahato*, Divyansha Lachi, Eva L. Dyer",
       venue: "Accepted to Machine Learning for Health (ML4H)",
       year: 2026,
     },
@@ -78,6 +78,14 @@ export const site = {
       year: 2027,
       arxiv: "https://arxiv.org/abs/2609.22064",
       github: "https://github.com/neuro-galaxy/ibl-brain-wide-bench",
+    },
+    {
+      title:
+        "Pretrained Neuron-Level Representations Enable Across-Subject Zero-Shot Transfer of Neural Decoders",
+      authors:
+        "Vinam Arora, Divyansha Lachi, Shivashriganesh P. Mahato, Alexandre Andre, Jacob Poschl, Keshav Balaji, Gaelle Chapuis Lachi, Matthew R. Whiteway, Eva L. Dyer",
+      venue: "In review at ICLR",
+      year: 2027,
     },
   ] as Publication[],
 
