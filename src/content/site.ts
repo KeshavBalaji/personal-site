@@ -66,7 +66,7 @@ export const site = {
         "Population-Aware Contrastive Channel Embeddings for Intracranial EEG",
       authors:
         "Keshav Balaji*, Shivashriganesh P. Mahato*, Divyansha Lachi, Eva L. Dyer",
-      venue: "Accepted to Machine Learning for Health (ML4H)",
+      venue: "Machine Learning for Health (ML4H)",
       year: 2026,
     },
     {
